@@ -9,7 +9,7 @@ export default function Users(){
     const fnAdd = () => setUsers([...users, name])
     const fnDelete = () => setUsers([...users.filter(u=>u!==name)])
     const fnChange = () => setUsers([...users.map(u=>u==name?prompt("new name"):u)])
-
+    const cb = (u,idx) => <li key={idx}>{u}</li>
 
 
     return(
@@ -21,7 +21,7 @@ export default function Users(){
                    onChange={handler} />
             <br />
             <ol>
-                {users.map((u,idx)=><li key={idx}>{u}</li>)}
+                {users.map(cb)}
             </ol>
             <h5>{"=".repeat(30)}</h5>
             <button onClick={fnAdd}>add</button>
